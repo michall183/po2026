@@ -1,4 +1,8 @@
-package agh.po.lab3;
+package main.java.agh.po.lab3;
+
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class CodingBat {
     public static void main(String[] args) {
@@ -38,6 +42,50 @@ public class CodingBat {
         return str.substring(midle-1, midle+1);
     }
 
+    public Map<String, String> mapAB2(Map<String, String> map) {
+        if (map.containsKey("a") && map.containsKey("b"))
+        {
+            if (map.get("a").equals(map.get("b"))) {
+                map.remove("a");
+                map.remove("b");
+
+            }
+        }
+        return map;
+    }
+
+
+    public Map<String, String> mapAB4(Map<String, String> map) {
+        if (map.containsKey("a") && map.containsKey("b")) {
+            String aVal = map.get("a");
+            String bVal = map.get("b");
+
+            if (aVal.length() > bVal.length()) {
+                map.put("c", aVal);
+            }
+            else if (bVal.length() > aVal.length()){
+                map.put("c", bVal);
+            }
+            else{
+                map.put("a", "");
+                map.put("b", "");
+            }
+        }
+        return map;
+    }
+
+    public Map<String, String> pairs(String[] strings) {
+
+        Map<String, String> map = new HashMap<>();
+        for(int i = 0; i < strings.length; i++){
+            String word = strings[i];
+            String first = word.charAt(0) + "";
+            String last = word.charAt(word.length()-1) + "";
+
+            map.put(first, last);
+        }
+        return map;
+    }
 
 
 
